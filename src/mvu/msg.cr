@@ -1,5 +1,3 @@
 # src/mvu/msg.cr
-module MVU
-  module Msg
-  end
+module MVU::Msg
 end
