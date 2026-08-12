@@ -35,6 +35,32 @@
 #     puts model.view
 #   end
 #
+# DSL
+# ---
+#
+# The macro DSL removes the boilerplate above. See `src/mvu/dsl.cr` for the
+# full construct reference. A minimal counter:
+#
+#   MVU.app Counter do
+#     state do
+#       count : Int32 = 0
+#     end
+#
+#     message Increment
+#     message Decrement
+#
+#     update do
+#       on Increment { count: count + 1 }
+#       on Decrement { count: count - 1 }
+#     end
+#
+#     view do
+#       "Count: #{count}"
+#     end
+#   end
+#
+#   program = MVU::Program.new(Counter.new)
+#
 # Commands (Cmd)
 # --------------
 #
@@ -94,6 +120,7 @@ require "./mvu/cmd"
 require "./mvu/model"
 require "./mvu/middleware"
 require "./mvu/program"
+require "./mvu/dsl"
 
 module MVU
 end
